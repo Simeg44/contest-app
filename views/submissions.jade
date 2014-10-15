@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1 Submissions
+	div.entries
+		ul
+			each val in info
+				p=val.name
+				iframe(width="560" height="315" src=val.url, frameborder="0" allowfullscreen)
+				p=val.title
+				p=val.description

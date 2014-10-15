@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	h1 Entry Submit
+	form(action="/formsubmit" method="post") 
+		input(type="text" name="name" placeholder="Name")
+		br
+		input(type="text" name="url" placeholder="URL to Youtube video")
+		br
+		input(type="text" name="title" placeholder="Title")
+		br
+		textarea(name="description", cols="30", rows="10" placeholder="Description")
+		br
+		input(type="submit")
+block footer
+	a(href="/submissions") Submissions
