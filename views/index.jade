@@ -1,16 +1,25 @@
 extends layout
 
+block header
+	div.head-container.col-sm-offset-1
+		h1 Stick Figure Showdown
+		ul.nav.nav-tabs
+			li.active: a(href="/") Submit Entry
+			li: a(href="/submissions") Submissions
+			li: a(href="/vote") Vote
 block content
-	h1 Entry Submit
-	form(action="/formsubmit" method="post") 
-		input(type="text" name="name" placeholder="Name")
-		br
-		input(type="text" name="url" placeholder="URL to Youtube video")
-		br
-		input(type="text" name="title" placeholder="Title")
-		br
-		textarea(name="description", cols="30", rows="10" placeholder="Description")
-		br
-		input(type="submit")
-block footer
-	a(href="/submissions") Submissions
+	if entries > 4
+			p.contest-full.bg-danger: strong Contest is full
+	if entries < 5
+		h3.col-sm-offset-1 Entry Submit
+		form.form.col-sm-offset-1(action="/formsubmit", method="post", role="form")
+			div.form-group.col-sm-10
+				input.form-control(type="text" name="name" placeholder="Name")
+			div.form-group.col-sm-10
+				input.form-control(type="text" name="url" placeholder="URL to Youtube video")
+			div.form-group.col-sm-10
+				input.form-control(type="text" name="title" placeholder="Title")
+			div.form-group.col-sm-10 
+				textarea.form-control(name="description", cols="30", rows="10" placeholder="Description")
+			div.form-group.col-sm-10
+				button.btn.btn-primary(type="submit") Submit

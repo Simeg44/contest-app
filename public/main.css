@@ -1,0 +1,15 @@
+.contest-full {
+	text-align: center;
+	vertical-align: bottom;
+	height: 40px;
+	padding-top: 10px;
+}
+
+.versus {
+	text-align: center;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 7em;
+	padding-top: 6%;
+	color: rosybrown;
+
+}

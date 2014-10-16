@@ -1,0 +1,16 @@
+extends layout
+
+block header
+	div.head-container.col-sm-offset-1
+		h1 Stick Figure Showdown
+		ul.nav.nav-tabs
+			li: a(href="/") Submit Entry
+			li.active: a(href="/submissions") Submissions
+			li: a(href="/vote") Vote
+block content
+	div
+		div.col-sm-5
+			iframe(width="560", height="315", src="//www.youtube.com/embed/" + sample[0].url + "?list=PL5586336C26BDB324", frameborder="0", allowfullscreen)
+		p.col-sm-2.versus VS
+		div.col-sm-5
+			iframe(width="560", height="315", src="//www.youtube.com/embed/" + sample[1].url + "?list=PL5586336C26BDB324", frameborder="0", allowfullscreen)
