@@ -8,14 +8,28 @@ block header
 			li.active: a(href="/submissions") Submissions
 			li: a(href="/vote") Vote
 block content
-	div.col-sm-offset-1
-		if info.length > 4
+	div.submissions
+		if info.length > 7
 			p.contest-full.bg-danger: strong Contest is full
 		h3 Submissions
 		div.entries
 			ul
-				each val in info
-					p.text-info Title: #{val.title}
-					iframe(width="560" height="315" src="//www.youtube.com/embed/" + val.url + "?list=PL5586336C26BDB324", frameborder="0" allowfullscreen)
-					p.text-muted By: #{val.name}
-					p.text-muted.descrip ~ #{val.description}
+				each val, i in info
+					div.entry-container
+						if i === 0 
+							div.first-place
+								span.glyphicon.glyphicon-tower
+								p 1st
+						if i === 1 
+							div.second-place
+								span.glyphicon.glyphicon-tower
+								p 2nd
+						if i === 2 
+							div.third-place
+								span.glyphicon.glyphicon-tower
+								p 3rd
+						p.entry-title= val.title
+						p.vote-num Votes: #{val.votes}
+						iframe(width="560" height="315" src="//www.youtube.com/embed/" + val.url + "?list=PL5586336C26BDB324", frameborder="0" allowfullscreen)
+						p.text-muted By: #{val.name}
+						p.text-muted.descrip ~ #{val.description}

@@ -14,10 +14,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.get('/', indexController.index);
 
 app.post("/formsubmit", apiController.addEntry);
+app.post("/addVote", apiController.update);
 
 
 app.get("/submissions", indexController.submissions);
-app.get("/vote", indexController.vote)
+app.get("/vote", indexController.vote);
+
+
 
 var server = app.listen(4403, function() {
 	console.log('Express server listening on port ' + server.address().port);

@@ -8,9 +8,9 @@ block header
 			li: a(href="/submissions") Submissions
 			li: a(href="/vote") Vote
 block content
-	if entries > 4
+	if entries > 7
 			p.contest-full.bg-danger: strong Contest is full
-	if entries < 5
+	if entries < 8
 		h3.col-sm-offset-1 Entry Submit
 		form.form.col-sm-offset-1(action="/formsubmit", method="post", role="form")
 			div.form-group.col-sm-10

@@ -1,5 +1,5 @@
 var entryInfo = require("../models/videos.js");
-var _ = require("underscore")
+var _ = require("underscore");
 
 var indexController = {
 	index: function(req, res) {
@@ -8,12 +8,17 @@ var indexController = {
 		});
 	},
 	submissions: function(req, res) {
+		var sorted = _.sortBy(entryInfo, function(entry) {
+			return entry.votes;
+		}).reverse();
+		
 		res.render("submissions", {
-			info: entryInfo
+			info: sorted
 		});
 	},
 	vote: function(req, res) {
 		var sample = _.sample(entryInfo, 2);
+		var place = 0;
 		console.log("sample:", sample);
 
 		res.render("vote", {
